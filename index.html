@@ -1,1 +1,279 @@
-i
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Page title</title>
+    <link rel="stylesheet" href="main.css">
+    <link href='https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap' rel='stylesheet'/>
+<!-- Bootstrap Icons -->
+<link href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.0/font/bootstrap-icons.min.css' rel='stylesheet'/>
+
+    
+<link rel="stylesheet" href="styles.css">
+
+<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-analytics.js"></script>
+<script src="firebase.js"></script>
+</head>
+            <!-- Facebook Metas -->
+            <meta property="og:title" content="Taqdeer">
+            <meta property="og:site_name" content="Taqdeer">
+            <meta property="og:description" content="Season 1">
+            <meta property="og:image" content="https://1.bp.blogspot.com/-TC1lAGZ3ZS0/X9wysZCPYGI/AAAAAAAAYQU/lfio2BpSBtwY0Q_kyOGukx78NR9xDegVwCLcBGAsYHQ/w320-h310/Taqdeer%2BWeb%2BSeries%2BDownload%2B%2526%2BWatch%2BOnline.webp">
+            <meta property="og:image:secure_url" content="https://1.bp.blogspot.com/-TC1lAGZ3ZS0/X9wysZCPYGI/AAAAAAAAYQU/lfio2BpSBtwY0Q_kyOGukx78NR9xDegVwCLcBGAsYHQ/w320-h310/Taqdeer%2BWeb%2BSeries%2BDownload%2B%2526%2BWatch%2BOnline.webp">
+            <meta property="og:image:type" content="image/png">
+            <meta property="og:image:width" content="1200">
+            <meta property="og:image:height" content="627">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color:#f8f8f8;
+        }
+        h1 {
+            margin-top: 20px;
+            text-align: center;
+            color: brown;
+        }
+        .col-sm {
+            margin-bottom: 10px;
+        }
+        #search {
+            background-color: transparent;
+            color: #fff;
+        }
+        .form-control::-webkit-input-placeholder {
+  color: #fff;
+}
+small{font-size:6px;
+}
+button::hover{background:#ff95a9;}
+    </style>
+</head>
+<body class='is-home is-multiple is-mobile cZnvOz'>
+<!-- Site Content -->
+
+
+
+
+
+    
+        <div class='site-outer'>
+<header class='site-header'>
+
+
+
+
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      <a class="navbar-brand" href="#">SMG <small class="bg-transparent">Shines Like a bright star</small></a>
+        <div class="collapse navbar-collapse" id="navbar">
+          
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" id="search" placeholder="Search" aria-label="Search">
+            
+            
+            <button class="btn btn-outline-danger my-2 my-sm-0" type="button" onclick="mainApp.logOut();">Log Out</button>
+          </form>
+        </div>
+      </nav>
+    </div>
+</div>
+</div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script>
+    $(document).ready(function(){
+      $("#search").on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+        $("#posts *").filter(function() {
+          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+      });
+    });
+    var mainApp = {};
+(function() {
+    var firebase = app_firebase;
+var uid = null;
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    uid = user.uid;
+  }else {
+      window.location.replace("login.html");
+  }
+});
+function logOut(){
+        firebase.auth().signOut();
+    }
+    mainApp.logOut = logOut;
+})()
+    </script>
+    
+    
+    
+<section class='flex-c'>
+<div class='featured container row-x1 section' id='featured' name='Featured Posts'><div class='widget HTML visible' data-version='2' id='HTML11'>
+<div class='widget-content' data-shortcode='{getPosts}'>
+</div>
+</div></div>
+</section>
+<section class='content-wrap flex-c'>
+<div class='container row-x1 flex-sb'>
+
+
+<div class='main section' id='main' name='Main Posts'><div class='widget Blog index-blog flex-col' data-version='2' id='Blog1'>
+<div class='title-wrap blog1-title'><h3 class='title'>Latest News</h3><a class='title-link' href='/search'>View all</a></div>
+
+
+
+    
+    
+    <div class='blog-posts index-post-wrap list-items' id="posts">
+    
+  <div class="blog-posts">
+    <div class="index-post-wrap">
+      <div class="list-items">
+        <!-- Blog posts will be dynamically added here -->
+      </div>
+    </div>
+  </div>
+</section>
+  <script>
+    // Define an array of blog data
+    const blogData = [
+      {
+        title: '11 of Best Laptops Evaluated Based on Budget',
+        url: '/2021/08/11-of-best-laptops-evaluated-based-on.html',
+        thumbnailSrc: 'https://unsplash.it/640/425?image=2',
+        tag: 'Apple',
+        author: 'John Doe',
+        date: 'August 02, 2022',
+        excerpt: 'Lorem Ipsum is simply dummy text of the printing and typesetting...'
+      },
+      {
+        title: '11 of Best Laptops Evaluated Based on Budget',
+        url: '/2021/08/11-of-best-laptops-evaluated-based-on.html',
+        thumbnailSrc: 'https://unsplash.it/640/425?image=1',
+        tag: 'Apple',
+        author: 'John Doe',
+        date: 'August 02, 2022',
+        excerpt: 'Lorem Ipsum is simply dummy text of the printing and typesetting...'
+      },
+      {
+        title: '11 of Best Laptops Evaluated Based on Budget',
+        url: '/2021/08/11-of-best-laptops-evaluated-based-on.html',
+        thumbnailSrc: 'https://unsplash.it/640/425?image=3',
+        tag: 'Apple',
+        author: 'John Doe',
+        date: 'August 02, 2022',
+        excerpt: 'Lorem Ipsum is simply dummy text of the printing and typesetting...'
+      },
+      {
+        title: '11 of Best Laptops Evaluated Based on Budget',
+        url: '/2021/08/11-of-best-laptops-evaluated-based-on.html',
+        thumbnailSrc: 'https://unsplash.it/640/425?image=5',
+        tag: 'Apple',
+        author: 'John Doe',
+        date: 'August 02, 2022',
+        excerpt: 'Lorem Ipsum is simply dummy text of the printing and typesetting...'
+      },
+      
+      
+      // Add more data objects as needed
+    ];
+
+    // Get the container where you want to dynamically generate the HTML
+    const container = document.querySelector('.blog-posts .list-items');
+
+    // Loop through the data and create HTML elements dynamically
+    blogData.forEach(item => {
+      const article = document.createElement('article');
+      article.className = 'article';
+
+      article.innerHTML = `
+        <a class='entry-thumbnail' href='${item.url}' title='${item.title}'>
+          <img src='${item.thumbnailSrc}' alt='${item.title}' class='thumbnail'>
+          <span class='entry-tag'>${item.tag}</span>
+        </a>
+        <div class='entry-header'>
+          <h2 class='entry-title'><a href='${item.url}' rel='bookmark'>${item.title}</a></h2>
+          <p class='entry-excerpt excerpt'>${item.excerpt}</p>
+          <div class='entry-meta'>
+            <span class='entry-author'><span class='author-name'>${item.author}</span></span>
+            <span class='entry-time'><span class='sp'>-</span><time class='published' datetime='${item.date}'>${item.date}</time></span>
+          </div>
+        </div>
+      `;
+
+      container.appendChild(article);
+    });
+  </script>
+
+
+
+</div>
+<div class='blog-pager'>
+<a class='amZWga btn visible' data-url=' /search?updated-max=2022-08-02T06:24:00-07:00&amp;max-results=4' href='#' id='amZWga'>
+Load More
+</a>
+<div class='loading'><div class='loader'><svg class='spinner' viewBox='0 0 50 50'><circle class='path' cx='25' cy='25' r='20'></circle></svg></div></div>
+<span class='no-more btn'>No results found</span>
+</div>
+</div></div>
+<div class='tZAeWi section' id='tZAeWi-2' name='Content Blocks'>
+<div class='widget HTML visible' data-version='2' id='HTML72'>
+<div class='title-wrap widget-title'><h3 class='title'>Videos</h3><a class='title-link' href='#'>View all</a></div>
+<div class='widget-content' data-shortcode='{getPosts} $label={Games} $type={video}'>
+</div>
+</div><div class='widget HTML visible' data-version='2' id='HTML14'>
+<div class='title-wrap widget-title'><h3 class='title'>Mobile</h3><a class='title-link' href='#'>View all</a></div>
+<div class='widget-content' data-shortcode='{getPosts} $label={Mobile} $type={list}'>
+</div>
+</div><div class='widget HTML visible' data-version='2' id='HTML10'>
+<div class='title-wrap widget-title'><h3 class='title'>Consoles</h3><a class='title-link' href='#'>View all</a></div>
+<div class='widget-content' data-shortcode='{getPosts} $label={Consoles} $type={grid1}'>
+</div>
+</div><div class='widget HTML visible' data-version='2' id='HTML12'>
+<div class='title-wrap widget-title'><h3 class='title'>Car News</h3><a class='title-link' href='#'>View all</a></div>
+<div class='widget-content' data-shortcode='{getPosts} $label={Cars} $type={block2}'>
+</div>
+</div></div>
+</main>
+<footer class='site-footer'>
+
+
+<div class='footer-bar flex-c'>
+<div class='container row-x1 flex-sb'>
+<div class='footer-copyright section' id='footer-copyright' name='Footer Copyright'><div class='widget Text' data-version='2' id='Text50'>
+Copyright &copy 2023 by - <a href='/' id='probtemplates' title='Pro Blogger Templates'>START-POINTs</a>
+</div></div>
+<div class='footer-menu section' id='footer-menu' name='Footer Menu'><div class='widget LinkList' data-version='2' id='LinkList204'>
+<ul class='link-list'>
+<li><a href='/'>Home</a></li>
+<li><a href='#'>About Us</a></li>
+<li><a href='#'>Privacy Policy</a></li>
+<li><a href='#'>Contact Us</a></li>
+</ul>
+</div></div>
+</div>
+</div>
+</footer>
+</div>
+</div>
+</section>
+
+
+<!-- Site Plugins -->
+
+<!-- Site Scripts -->
+
+</body>
+</html>
+
+
