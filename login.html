@@ -1,1 +1,169 @@
-l
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMG</title>
+    <!-- Add your CSS and JavaScript links here -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+    <style>
+            * {
+              overflow: hidden;
+            }
+            body {
+          font-family: 'Roboto';
+          font-size: 16px;
+          color: black;
+          background-color:#f8f8f8;
+           background-size: cover;
+          background-repeat: repeat;
+          -webkit-user-select: none;
+          -khtml-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          user-select: none;
+        }
+        
+        .form-container {
+          max-width: 330px;
+          margin: 150px auto;
+          padding: 50px;
+          text-align: center;
+        }
+        
+        
+        .input-field {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-bottom: 20px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          background-color: transparent;
+        }
+        input {
+            background-color: transparent;
+        }
+        .input-field .fa {
+          width: 15%;
+          color: brown;
+        }
+        
+        .input-field input {
+          box-sizing: border-box;
+          width: 85%;
+          padding: 10px;
+          color: black;
+          border: 0;
+          border-radius: 0 5px 5px 0;
+          font-size: inherit;
+          font-family: 'Roboto';
+        }
+        .btn {
+          display: block;
+          width: 50%;
+          margin: 0 auto;
+          background :brown;
+          border: 1px solid transparent;
+          font-family: 'Roboto';
+          border-radius: 5px;
+          padding: 10px;
+          color: #fff;
+          margin-bottom: 20px;
+          cursor: pointer;
+          font-size: inherit;
+          transition: 0.2s;
+        }
+        .btn:hover {
+          color: brown;
+          background: transparent;
+          border: 1px solid brown;
+        }
+        ::-webkit-input-placeholder {
+            background: transparent;
+        }
+        form a {
+          display: inline-block;
+          color: #555;
+          text-decoration: none;
+        }
+        #dtl, #i {
+          display: none;
+        }
+        form a:hover {
+          text-decoration: underline;
+          text-decoration-style: dotted;
+        }
+        a{color:#f8f8f8;
+        text-decoration:none}
+        #forgotPass {
+            margin-right: 25px;
+          }
+        @media only screen and (max-width: 500px) {
+          #forgotPass {
+            margin-right: 0px;
+            margin-bottom: 5px;
+          }
+          #subs {
+            display: inline-block;
+          }
+          .form-container {
+            margin-top: 50px;
+            margin-bottom: 20px;
+          }
+        } 
+          </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>SMG</h1>
+        <form method="post" autocomplete="off" id="form" name="Form">
+            <div class="input-field">
+                <i class="fa fa-envelope"></i>
+                <input type="email" id="email" name="email" placeholder="Email">
+            </div>
+            <div class="input-field">
+                <i class="fa fa-lock"></i>
+                <input type="password" id="password" name="password" placeholder="Password">
+            </div>
+            <button id="access" name="signin" class="btn">Log in</button>
+        </form>
+    </div>
+<h6 id="small"><center>Haven't  any account! Don't worry!!!!</center>
+</h6>
+<button id="" name="login" class="btn"><a href="sign-up.html">Sign-up Page</a></button>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-analytics.js"></script>
+    <script src="firebase.js"></script>
+
+    <script>
+        function toggleSignIn(e) {
+            e.preventDefault();
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+            
+            firebase.auth().signInWithEmailAndPassword(email, password)
+                .then(function(userCredential) {
+                    var user = userCredential.user;
+                    alert('Login successful!');
+                    window.location.replace("index.html"); // Redirect to main page
+                })
+                .catch(function(error) {
+                    var errorCode = error.code;
+                    var errorMessage = error.message;
+                    if (errorCode === 'auth/wrong-password') {
+                        alert('Wrong password.');
+                    } else {
+                        alert('Login failed: ' + errorMessage);
+                    }
+                });
+        }
+
+        // Initialize Firebase and add your configuration here
+
+        document.getElementById('access').addEventListener('click', toggleSignIn, false);
+    </script>
+</body>
+</html>
+
